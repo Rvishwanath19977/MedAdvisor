@@ -5,6 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import { AuthProvider, useAuth } from '../AuthContext';
 import { useNavigate } from 'react-router-dom';
+import Logout from './Logout';
 
 function NavbarComponent() {
     const { user } = useAuth();
@@ -18,6 +19,8 @@ function NavbarComponent() {
                 .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
         });
         window.location.reload();
+    
+        return <Logout />;
     };
     return (
         <AuthProvider>
